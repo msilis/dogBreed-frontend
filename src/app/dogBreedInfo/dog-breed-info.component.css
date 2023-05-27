@@ -1,0 +1,73 @@
+.dogBreedName {
+  width: 20rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 4px solid black;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 0px 15px 0px 0px;
+  box-shadow: 6px 6px 6px black;
+  transition: 0.3s;
+  background-color: hsla(0, 100%, 100%, 0.15);
+}
+
+.dogBreedName:hover {
+  cursor: pointer;
+}
+
+.dogBreedName:active {
+  transform: translateY(5px);
+}
+
+.moreInfoHeading {
+  text-align: center;
+}
+
+.dogMoreInfo {
+  width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.moreInfoContainer {
+  margin-top: 2rem;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.moreInfoContainer.show {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeIn 0.3s ease;
+}
+
+.moreInfoContainer.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeOut 0.3s ease-out;
+}
+
+@media only screen and (width < 400px) {
+  .dogMoreInfo {
+    width: 20rem;
+  }
+}

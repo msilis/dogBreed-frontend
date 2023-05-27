@@ -1,0 +1,19 @@
+<div
+  *ngFor="let item of dogData"
+  class="dogBreedName"
+  (click)="showDetails(item)"
+>
+  {{ item.name }}
+</div>
+
+<div
+  class="moreInfoContainer"
+  [class.show]="showMoreInfo"
+  [class.hidden]="!showMoreInfo"
+>
+  <div *ngIf="selectedDog" class="dogMoreInfo">
+    <h2 class="moreInfoHeading">{{ selectedDog.name }} Details:</h2>
+    <p>{{ selectedDog.bio }}</p>
+    <button (click)="closeInfo()">Close</button>
+  </div>
+</div>
