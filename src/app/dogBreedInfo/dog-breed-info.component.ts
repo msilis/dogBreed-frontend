@@ -16,7 +16,7 @@ export class DogBreedInfoComponent implements OnInit {
   constructor(private http: HttpClient) {}
   rootUrl: string = 'http://localhost:3000/allDogs';
 
-  fetchArray() {
+  /* fetchArray() {
     this.isLoading = true;
     this.http.get<any[]>('http://localhost:3000/allDogs').subscribe(
       (data) => {
@@ -28,6 +28,23 @@ export class DogBreedInfoComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  } */
+
+  //For Production build
+  fetchArray() {
+    this.isLoading = true;
+    this.http
+      .get<any[]>('https://fluffy-octo-invention.vercel.app/allDogs')
+      .subscribe(
+        (data) => {
+          this.dogData = data;
+          this.isLoading = false;
+        },
+        (error) => {
+          console.error(error);
+          this.isLoading = false;
+        }
+      );
   }
 
   selectedDog: any = null;
