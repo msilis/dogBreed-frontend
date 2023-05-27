@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DogBreedInfoComponent implements OnInit {
   dogData: any[] = [];
+  isLoading: boolean = false;
 
   ngOnInit(): void {
     this.fetchArray();
@@ -16,12 +17,15 @@ export class DogBreedInfoComponent implements OnInit {
   rootUrl: string = 'http://localhost:3000/allDogs';
 
   fetchArray() {
+    this.isLoading = true;
     this.http.get<any[]>('http://localhost:3000/allDogs').subscribe(
       (data) => {
         this.dogData = data;
+        this.isLoading = false;
       },
       (error) => {
         console.error(error);
+        this.isLoading = false;
       }
     );
   }

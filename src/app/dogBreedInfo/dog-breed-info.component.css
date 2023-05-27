@@ -48,6 +48,10 @@
   }
 }
 
+.loadingContainer {
+  text-align: center;
+}
+
 .moreInfoContainer {
   margin-top: 2rem;
   transform: translateY(-20px);

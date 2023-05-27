@@ -1,9 +1,13 @@
-<div
-  *ngFor="let item of dogData"
-  class="dogBreedName"
-  (click)="showDetails(item)"
->
-  {{ item.name }}
+<div *ngIf="isLoading" class="loadingContainer">Loading ...</div>
+
+<div *ngIf="!isLoading">
+  <div
+    *ngFor="let item of dogData"
+    class="dogBreedName"
+    (click)="showDetails(item)"
+  >
+    {{ item.name }}
+  </div>
 </div>
 
 <div
