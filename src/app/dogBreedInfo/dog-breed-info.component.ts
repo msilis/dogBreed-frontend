@@ -16,6 +16,7 @@ export class DogBreedInfoComponent implements OnInit {
   constructor(private http: HttpClient) {}
   rootUrl: string = 'http://localhost:3000/allDogs';
 
+  //For Local Testing
   /* fetchArray() {
     this.isLoading = true;
     this.http.get<any[]>('http://localhost:3000/allDogs').subscribe(
