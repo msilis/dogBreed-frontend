@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
+import { DogBreedService } from '../dog-breed.service';
+
 @Component({
   selector: 'app-dog-breed-info',
   templateUrl: './dog-breed-info.component.html',
@@ -13,13 +15,12 @@ export class DogBreedInfoComponent implements OnInit {
     this.fetchArray();
   }
 
-  constructor(private http: HttpClient) {}
-  rootUrl: string = 'http://localhost:3000/allDogs';
+  constructor(private dogBreedService: DogBreedService) {}
 
   //For Local Testing
-  /* fetchArray() {
+  fetchArray() {
     this.isLoading = true;
-    this.http.get<any[]>('http://localhost:3000/allDogs').subscribe(
+    this.dogBreedService.fetchDogInfo().subscribe(
       (data) => {
         this.dogData = data;
         this.isLoading = false;
@@ -29,10 +30,10 @@ export class DogBreedInfoComponent implements OnInit {
         this.isLoading = false;
       }
     );
-  } */
+  }
 
   //For Production build
-  fetchArray() {
+  /*  fetchArray() {
     this.isLoading = true;
     this.http
       .get<any[]>('https://fluffy-octo-invention.vercel.app/allDogs')
@@ -46,7 +47,7 @@ export class DogBreedInfoComponent implements OnInit {
           this.isLoading = false;
         }
       );
-  }
+  } */
 
   selectedDog: any = null;
   showMoreInfo: boolean = false;
